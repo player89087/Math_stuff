@@ -4,17 +4,18 @@ import sys
 import os 
 from decimal import * 
 
+sys.set_int_max_str_digits(1000000000)
 
-getcontext().prec = 250 # precision of the golden ratio is specified
 start = time.time()
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(
         description="fibonacci sequence"
     )
     parser.add_argument("-n", required=True, type=int) 
-   
+    parser.add_argument("-g",required=True,type=int)
     args = parser.parse_args()
-
+    
+    getcontext().prec = args.g # precision of the golden ratio is specified
     numb = args.n
     prev = 1
     prev2 = 0
