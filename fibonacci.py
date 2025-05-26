@@ -28,7 +28,7 @@ for i in range(0,numb):
 end = time.time()
 
 dur = end - start
-
+size = int(sys.getsizeof(new)) / 1000
 print(f"the number: {new}\n Time needed: {dur} \n Length of the number {len(str(new))}")
 with open("fibonacci.txt", "w") as file:
-    file.write(f"Number: {new} \n Time needed: {dur}")
+    file.write(f"Number: {new} \n Time needed: {dur} \n Number size: {size} kB")
