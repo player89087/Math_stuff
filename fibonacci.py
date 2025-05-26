@@ -18,6 +18,7 @@ if __name__ == "__main__":
     new = 0 
 for i in range(0,numb):
     new = prev + prev2
+    golden_ratio = float(new / prev) # relationship between two sections
     prev2 = prev
     prev = new
     if i % (numb / 100) == 0:
@@ -29,6 +30,8 @@ end = time.time()
 
 dur = end - start
 size = int(sys.getsizeof(new)) / 1000
-print(f"the number: {new}\n Time needed: {dur} \n Length of the number {len(str(new))}")
+
+print(f"the number: {new}\n Time needed: {dur} \n Length of the number {len(str(new))} \n Golden Ratio: {golden_ratio}") 
+print(golden_ratio)
 with open("fibonacci.txt", "w") as file:
-    file.write(f"Number: {new} \n Time needed: {dur} \n Number size: {size} kB")
+    file.write(f"Number: {new} \n Time needed: {dur} \n Number size: {size} kB \n Golden Ratio: {golden_ratio}")
