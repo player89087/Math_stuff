@@ -5,7 +5,7 @@ import os
 from decimal import * 
 
 
-getcontext().prec = 100 # precision of the golden ratio is specified
+getcontext().prec = 250 # precision of the golden ratio is specified
 start = time.time()
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(
@@ -21,7 +21,8 @@ if __name__ == "__main__":
     new = 0 
 for i in range(0,numb):
     new = prev + prev2
-    golden_ratio = Decimal(new) / Decimal(prev) # relationship between two sections
+    if i == numb -1 : 
+         golden_ratio = Decimal(new) / Decimal(prev) # relationship between two sections
     prev2 = prev
     prev = new
     if i % (numb / 100) == 0:
@@ -35,6 +36,5 @@ dur = end - start
 size = int(sys.getsizeof(new)) / 1000
 
 print(f"the number: {new}\n Time needed: {dur} \n Length of the number {len(str(new))} \n Golden Ratio: {golden_ratio}") 
-print(golden_ratio)
 with open("fibonacci.txt", "w") as file:
     file.write(f"Number: {new} \n Time needed: {dur} \n Number size: {size} kB \n Golden Ratio: {golden_ratio}")
