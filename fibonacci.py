@@ -2,13 +2,16 @@ import argparse
 import time 
 import sys 
 import os 
-sys.set_int_max_str_digits(10000000) # set the limit higher
+from decimal import * 
+
+
+getcontext().prec = 100 # precision of the golden ratio is specified
 start = time.time()
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(
         description="fibonacci sequence"
     )
-    parser.add_argument("-n", required=True, type=int) # amount of places
+    parser.add_argument("-n", required=True, type=int) 
    
     args = parser.parse_args()
 
@@ -18,7 +21,7 @@ if __name__ == "__main__":
     new = 0 
 for i in range(0,numb):
     new = prev + prev2
-    golden_ratio = float(new / prev) # relationship between two sections
+    golden_ratio = Decimal(new) / Decimal(prev) # relationship between two sections
     prev2 = prev
     prev = new
     if i % (numb / 100) == 0:
