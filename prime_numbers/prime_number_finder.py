@@ -28,4 +28,6 @@ for i in range(2,amount):
             y += 1
     if is_prime_number == True:
         prime_numb.append(i)
-print(prime_numb)
+
+for z in range(0,len(prime_numb)):
+    print(prime_numb[z], end = "  ")
