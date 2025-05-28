@@ -19,8 +19,8 @@ if __name__ == "__main__":
     new = 0 
 for i in range(0,numb):
     new = prev + prev2
-    if i == numb:
-        print(f"Is a fibonacci number, place {i}")
+    if new == numb :
+        print(f"Is a fibonacci number, place {i +1 }")
         break
     prev2 = prev
     prev = new
