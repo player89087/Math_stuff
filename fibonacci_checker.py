@@ -1,10 +1,7 @@
 import argparse
-import time 
+
 import sys 
 import os 
-from decimal import * 
-
-sys.set_int_max_str_digits(1000000000)
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(
@@ -29,7 +26,3 @@ for i in range(0,numb):
         os.system("cls")
         print("Progress: "+ str(stat) + "%   " + "#"*int(stat) )
 
-
-size = int(sys.getsizeof(new)) / 1000
-
-print(f"the number: {i}\n Length of the number {len(str(new))} ") 
