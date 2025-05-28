@@ -4,7 +4,7 @@ import sys
 import os 
 
 
-decimal.getcontext().prec = 2
+
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(
@@ -26,8 +26,8 @@ for i in range(0,numb):
         break
     prev2 = prev
     prev = new
-    if x % (x // 100) == 0: # auto get int as result
-        stat = (i // numb *100)
+    if x % (x / 100) == 0: # auto get int as result
+        stat = (x // i *100)
         os.system("cls")
         print("Progress: "+ str(stat) + "%   " + "#"*int(stat) )
 
