@@ -1,7 +1,10 @@
 import argparse
-
+import decimal
 import sys 
 import os 
+
+
+decimal.getcontext().prec = 2
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(
@@ -14,15 +17,17 @@ if __name__ == "__main__":
     prev = 1
     prev2 = 0
     new = 0 
+x = 1
 for i in range(0,numb):
+    x += 1
     new = prev + prev2
     if new == numb :
-        print(f"Is a fibonacci number, place {i +1 }")
+        print(f"Is a fibonacci number, place {i + 1 }") # did not start at zero so 
         break
     prev2 = prev
     prev = new
-    if i % (numb / 100) == 0:
-        stat = int(i / numb *100)
+    if x % (x // 100) == 0: # auto get int as result
+        stat = (i // numb *100)
         os.system("cls")
         print("Progress: "+ str(stat) + "%   " + "#"*int(stat) )
 
