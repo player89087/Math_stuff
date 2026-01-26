@@ -9,25 +9,29 @@ global n
 n = None
 
 channel_id = " "
-authorization = " "
+Authorization = " " 
 
 def retrieve_msg(channel_id):
     headers = {
-        "Authorization": authorization 
+        "Authorization":Authorization
     }
     r = requests.get(
         f"https://discord.com/api/v9/channels/{channel_id}/messages?limit=50",
         headers=headers
     )
     jsonn = json.loads(r.text)
-    global message1, message2, message3
+    global message1, message2, message3,message1_user,message2_user,message3_user
     message1 = jsonn[0]["content"]
+    message1_user = jsonn[0]["author"]["username"] # has to be different as the actual lies on a different level
     message2 = jsonn[1]["content"]
+    message2_user = jsonn[1]["author"]["username"]
     message3 = jsonn[2]["content"]
+    message3_user = jsonn[2]["author"]["username"]
+    
 
 def send_msg(channel_id, message):
     headers = {
-        "Authorization": authorization
+        "Authorization":Authorization
     }
     payload = {
         "content": message
@@ -69,9 +73,10 @@ def main():
     de_en = int(input("Decrypt 1, encrypt 2: "))
     if de_en == 1:
         retrieve_msg(channel_id)
-        print(f"1. {message1},\n")
-        print(f"2. {message2},\n")
-        print(f"3. {message3},\n")
+        print(f"1.{message1_user}: {message1},\n")
+        print(f"2.{message2_user}: {message2},\n")
+        print(f"3.{message3_user}: {message3},\n")
+    
         dcs = int(input("Which message would you like to decrypt (1,2,3): "))
         if dcs == 1:
             rsa_decrypt(message1)
