@@ -3,7 +3,7 @@ import math
 import time 
 import numpy as np 
 start = time.time()
-word = "Great job you found the solution [encrypt10n_1s_k3y.html] "
+word = ""
 
 
 # Generate unicode for the string 
@@ -14,7 +14,7 @@ for i in range(0,len(word)):
 
 # calculate rsa key pair 
 
-amount = 2**1023
+amount = 2**10
 prime_numb = []
 
 nums = []
@@ -60,7 +60,7 @@ nums = 0
 for i in range(2): # amount specified 
     is_prime = False
     k = random.randint(0, 10000000) 
-    power = random.randint(1023,2048)
+    power = random.randint(2300,3072)
     print(power)
     test_num = 2**power + k
     while is_prime == False:
@@ -114,7 +114,7 @@ print(f"secret list {secret_msg}")
 clear_message = []
 for i in range(0,len(secret_msg)):
     clear_message.append(pow(secret_msg[i],d,n))
-    print(chr(clear_message[i],end=""))
+    print(chr(clear_message[i]))
 
 end = time.time()
 
